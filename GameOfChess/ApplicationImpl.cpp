@@ -1,8 +1,11 @@
 #include "ApplicationImpl.h"
 
+#include <SDL_image.h>
 #include <iostream>
+#include <cassert>
 
 ApplicationImpl::ApplicationImpl()
+	: m_surfaceFactory {std::make_unique<SDLSurfaceFactory>()}
 {
 	startUp();
 }
@@ -20,9 +23,13 @@ void ApplicationImpl::run()
 		return;
 	}
 
-	SDL_FillRect(m_screenSurface.get(), 
-				 nullptr,
-				 SDL_MapRGB(m_screenSurface->format, 0xFF, 0xFF, 0xFF));
+	const auto bKing = m_surfaceFactory->createSurfaceFromImage(common::ImageType::PNG,
+																"Assets/b_king.png",
+																*m_screenSurface.get());
+
+	assert(bKing.result == common::Result::SUCCESS);
+
+	SDL_BlitSurface(bKing.value.get(), nullptr, m_screenSurface.get(), nullptr);
 	SDL_UpdateWindowSurface(m_window.get());
 	SDL_Delay(1000);
 }
@@ -45,6 +52,13 @@ void ApplicationImpl::startUp()
 	if(not m_window.get())
 	{
 		std::cerr << "Failed to create window! Reason: " << SDL_GetError() << std::endl;
+		return;
+	}
+
+	int imgFlags = IMG_INIT_PNG;
+	if(not (IMG_Init(imgFlags) & imgFlags))
+	{
+		std::cerr << "Failed to initialize SDL_image! Reason: " << IMG_GetError() << std::endl;
 		return;
 	}
 
