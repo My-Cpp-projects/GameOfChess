@@ -24,6 +24,6 @@ private:
 	constexpr static std::uint32_t SCREEN_WIDTH{ 1920 };
 	bool m_isStartUpSuccessful{ false };
 	common::SDLWindowUPtr_t m_window{ nullptr, SDL_DestroyWindow };
-	common::SDLSurfaceUPtr_t m_screenSurface{ nullptr, SDL_FreeSurface };
+	SDL_Surface* m_screenSurface{ nullptr }; // lifetime is managed by m_window
 	const std::unique_ptr<SDLSurfaceFactory> m_surfaceFactory{ nullptr };
 };

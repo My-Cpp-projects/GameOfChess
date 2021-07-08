@@ -25,11 +25,13 @@ void ApplicationImpl::run()
 
 	const auto bKing = m_surfaceFactory->createSurfaceFromImage(common::ImageType::PNG,
 																"Assets/b_king.png",
-																*m_screenSurface.get());
+																m_screenSurface->format);
 
 	assert(bKing.result == common::Result::SUCCESS);
 
-	SDL_BlitSurface(bKing.value.get(), nullptr, m_screenSurface.get(), nullptr);
+	SDL_FillRect(m_screenSurface, NULL, SDL_MapRGB(m_screenSurface->format, 0xFF, 0xFF, 0xFF));
+	SDL_BlitSurface(bKing.value.get(), nullptr, m_screenSurface, nullptr);
+
 	SDL_UpdateWindowSurface(m_window.get());
 	SDL_Delay(1000);
 }
@@ -62,7 +64,7 @@ void ApplicationImpl::startUp()
 		return;
 	}
 
-	m_screenSurface.reset(SDL_GetWindowSurface(m_window.get()));
+	m_screenSurface = SDL_GetWindowSurface(m_window.get());
 	if(not m_screenSurface)
 	{
 		std::cerr << "Failed to get surface from window! Reason: " << SDL_GetError() << std::endl;

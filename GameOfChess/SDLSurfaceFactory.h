@@ -15,7 +15,7 @@ class SDLSurfaceFactory
 public:
 	SurfaceCreationResult createSurfaceFromImage(const common::ImageType imageType,
 												 const std::string& path,
-												 const SDL_Surface& screenSurface) const;
+												 const SDL_PixelFormat* const pixelFormat) const;
 
 private:
 	common::SDLSurfaceUPtr_t loadFromPathPNG(const std::string& path) const;
