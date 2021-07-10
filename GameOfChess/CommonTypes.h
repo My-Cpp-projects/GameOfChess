@@ -5,8 +5,8 @@
 
 namespace common
 {
-	using SDLSurfaceUPtr_t = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
-	using SDLWindowUPtr_t = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
+	using sdlSurfaceUPtr_t = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
+	using sdlWindowUPtr_t = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
 
 	enum class ImageType
 	{

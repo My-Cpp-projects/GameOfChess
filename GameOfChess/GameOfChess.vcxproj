@@ -153,13 +153,15 @@
   <ItemGroup>
     <ClCompile Include="ApplicationImpl.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SDLSurfaceFactory.cpp" />
+    <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="TextureCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationImpl.h" />
     <ClInclude Include="CommonTypes.h" />
     <ClInclude Include="IApplication.h" />
-    <ClInclude Include="SDLSurfaceFactory.h" />
+    <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="TextureCreator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,7 +21,10 @@
     <ClCompile Include="ApplicationImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDLSurfaceFactory.cpp">
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +35,13 @@
     <ClInclude Include="ApplicationImpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDLSurfaceFactory.h">
+    <ClInclude Include="ImageLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CommonTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
