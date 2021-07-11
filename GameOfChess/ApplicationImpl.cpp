@@ -48,13 +48,13 @@ void ApplicationImpl::startUp()
 		return;
 	}
 
-	m_renderer = SDL_CreateRenderer(m_window.get(), -1, SDL_RENDERER_ACCELERATED);
+	m_renderer.reset(SDL_CreateRenderer(m_window.get(), -1, SDL_RENDERER_ACCELERATED));
 	if(m_renderer == nullptr)
 	{
 		printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
 		return;
 	}
-	SDL_SetRenderDrawColor(m_renderer, 0x0, 0x00ff, 0x0, 0xFF);
+	SDL_SetRenderDrawColor(m_renderer.get(), 0x0, 0x00ff, 0x0, 0xff);
 
 	int imgFlags = IMG_INIT_PNG;
 	if(not (IMG_Init(imgFlags) & imgFlags))
@@ -63,42 +63,32 @@ void ApplicationImpl::startUp()
 		return;
 	}
 
-	m_screenSurface = SDL_GetWindowSurface(m_window.get());
-	if(not m_screenSurface)
-	{
-		std::cerr << "Failed to get surface from window! Reason: " << SDL_GetError() << std::endl;
-		return;
-	}
-
 	m_isStartUpSuccessful = true;
 }
 
 void ApplicationImpl::shutDown()
 {
-	SDL_DestroyTexture(m_texture);
-	SDL_DestroyRenderer(m_renderer);
-
 	IMG_Quit();
 	SDL_Quit();
 }
 
 void ApplicationImpl::mainLoop()
 {
-	m_texture = textureCreator::createTexture(common::ImageType::PNG,
-											  "Assets/b_king.png",
-											  m_renderer);
+	auto texture = textureCreator::createTexture(common::ImageType::PNG,
+												 "Assets/b_king.png",
+												 m_renderer.get());
 
 	while(m_shouldRun)
 	{
 		handleEvents();
 		
-		SDL_RenderClear(m_renderer);
+		SDL_RenderClear(m_renderer.get());
 
 		// magic numbers from actual image dimesions
 		SDL_Rect dstrect = { 5, 5, 440, 443 };
-		SDL_RenderCopy(m_renderer, m_texture, NULL, &dstrect);
+		SDL_RenderCopy(m_renderer.get(), texture.value.get(), nullptr, &dstrect);
 
-		SDL_RenderPresent(m_renderer);
+		SDL_RenderPresent(m_renderer.get());
 	}
 }
 

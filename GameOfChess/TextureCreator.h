@@ -5,10 +5,12 @@
 #include <SDL.h>
 #include <string>
 
+using textureCreatResult = common::ResultValue<common::sdlTextureUPtr_t>;
+
 namespace textureCreator
 {
-	SDL_Texture* createTexture(const common::ImageType type,
-                               const std::string& pathToTexture,
-                               SDL_Renderer* const renderer);
+    textureCreatResult createTexture(const common::ImageType type,
+                                     const std::string& pathToTexture,
+                                     SDL_Renderer* const renderer);
 }
 

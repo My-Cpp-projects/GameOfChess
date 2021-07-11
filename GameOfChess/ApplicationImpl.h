@@ -22,13 +22,11 @@ private:
 	void handleEvents();
 
 private:
-	constexpr static std::uint32_t SCREEN_HEIGHT{ 1080 };
-	constexpr static std::uint32_t SCREEN_WIDTH{ 1920 };
+	constexpr static std::uint32_t SCREEN_HEIGHT{ 500 };
+	constexpr static std::uint32_t SCREEN_WIDTH{ 500 };
 	bool m_isStartUpSuccessful{ false };
 	bool m_shouldRun{ true };
 	common::sdlWindowUPtr_t m_window{ nullptr, SDL_DestroyWindow };
-	SDL_Surface* m_screenSurface{ nullptr }; // lifetime is managed by m_window
+	common::sdlRendererUPtr_t m_renderer{ nullptr, SDL_DestroyRenderer };
 	SDL_Event m_event;
-	SDL_Renderer* m_renderer{ nullptr };
-	SDL_Texture* m_texture{ nullptr };
 };
