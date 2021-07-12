@@ -1,6 +1,4 @@
 #include "ApplicationImpl.h"
-#include "TextureCreator.h"
-#include "ImageLoader.h"
 
 #include <SDL_image.h>
 #include <iostream>
@@ -63,6 +61,10 @@ void ApplicationImpl::startUp()
 		return;
 	}
 
+	m_board = std::make_unique<Board>();
+	m_boardView = std::make_unique<BoardView>(m_board->getData(), *m_renderer);
+	m_gameController = std::make_unique<GameController>(m_board->getData());
+
 	m_isStartUpSuccessful = true;
 }
 
@@ -74,31 +76,10 @@ void ApplicationImpl::shutDown()
 
 void ApplicationImpl::mainLoop()
 {
-	auto texture = textureCreator::createTexture(common::ImageType::PNG,
-												 "Assets/b_king.png",
-												 m_renderer.get());
-
-	while(m_shouldRun)
+	while(m_gameController->isRunning())
 	{
-		handleEvents();
+		m_gameController->handleEvents();
 		
-		SDL_RenderClear(m_renderer.get());
-
-		// magic numbers from actual image dimesions
-		SDL_Rect dstrect = { 5, 5, 440, 443 };
-		SDL_RenderCopy(m_renderer.get(), texture.value.get(), nullptr, &dstrect);
-
-		SDL_RenderPresent(m_renderer.get());
-	}
-}
-
-void ApplicationImpl::handleEvents()
-{
-	while(SDL_PollEvent(&m_event) != 0)
-	{
-		if(m_event.type == SDL_QUIT)
-		{
-			m_shouldRun = false;
-		}
+		m_boardView->render();
 	}
 }

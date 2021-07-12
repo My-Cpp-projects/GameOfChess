@@ -2,6 +2,9 @@
 
 #include "IApplication.h"
 #include "CommonTypes.h"
+#include "Board.h"
+#include "BoardView.h"
+#include "GameController.h"
 
 #include <SDL.h>
 #include <memory>
@@ -22,11 +25,12 @@ private:
 	void handleEvents();
 
 private:
-	constexpr static std::uint32_t SCREEN_HEIGHT{ 500 };
-	constexpr static std::uint32_t SCREEN_WIDTH{ 500 };
+	constexpr static std::uint32_t SCREEN_WIDTH{ 480 };
+	constexpr static std::uint32_t SCREEN_HEIGHT{ 480 };
 	bool m_isStartUpSuccessful{ false };
-	bool m_shouldRun{ true };
 	common::sdlWindowUPtr_t m_window{ nullptr, SDL_DestroyWindow };
 	common::sdlRendererUPtr_t m_renderer{ nullptr, SDL_DestroyRenderer };
-	SDL_Event m_event;
+	boardUPtr_t m_board{ nullptr };
+	boardViewUPtr_t m_boardView{ nullptr };
+	gameControllerUPtr_t m_gameController{ nullptr };
 };

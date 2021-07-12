@@ -152,13 +152,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ApplicationImpl.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="BoardView.cpp" />
+    <ClCompile Include="GameController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="TextureCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationImpl.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="BoardData.h" />
+    <ClInclude Include="BoardView.h" />
     <ClInclude Include="CommonTypes.h" />
+    <ClInclude Include="GameController.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="TextureCreator.h" />

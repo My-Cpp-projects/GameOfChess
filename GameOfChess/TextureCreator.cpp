@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-textureCreatResult textureCreator::createTexture(const common::ImageType type,
-                                                 const std::string& pathToTexture,
-                                                 SDL_Renderer* const renderer)
+common::sdlTextureUPtr_t textureCreator::createTexture(const common::ImageType type,
+                                                       const std::string& pathToTexture,
+                                                       SDL_Renderer& renderer)
 {
     auto loadedImage = ImageLoader::loadImage(type, pathToTexture);
-    auto newTexture = SDL_CreateTextureFromSurface(renderer, loadedImage.value.get());
+    auto newTexture = SDL_CreateTextureFromSurface(&renderer, loadedImage.value.get());
     auto result = common::Result::SUCCESS;
     if(not newTexture)
     {
@@ -16,5 +16,5 @@ textureCreatResult textureCreator::createTexture(const common::ImageType type,
         result = common::Result::FAILURE;
     }
 
-    return textureCreatResult{ result,  common::sdlTextureUPtr_t{newTexture, SDL_DestroyTexture } };
+    return common::sdlTextureUPtr_t{ newTexture, SDL_DestroyTexture };
 }
