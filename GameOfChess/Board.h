@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BoardData.h"
+#include "CommonTypes.h"
 
 #include <array>
 #include <memory>
@@ -16,6 +17,8 @@ public:
 	BoardData& getData();
 private:
 	std::unique_ptr<BoardData> m_data;
+	common::ChessPieceColor m_playerSide{ common::ChessPieceColor::WHITE }; //TODO in future user should be able to pick side
+	common::ChessPieceColor m_opponentSide;
 };
 
 using boardUPtr_t = std::unique_ptr<Board>;

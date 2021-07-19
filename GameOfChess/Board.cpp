@@ -4,32 +4,52 @@
 Board::Board()
 	: m_data(std::make_unique<BoardData>())
 {
+	switch(m_playerSide)
+	{
+		case common::ChessPieceColor::NO_COLOR:
+			break;
+		case common::ChessPieceColor::BLACK:
+		{
+			m_opponentSide = common::ChessPieceColor::WHITE;
+			break;
+		}
+		case common::ChessPieceColor::WHITE:
+		{
+			m_opponentSide = common::ChessPieceColor::BLACK;
+			break;
+		}
+		case common::ChessPieceColor::COUNT:
+			break;
+	}
+
 	resetBoard();
 }
 
 Board::~Board()
 {
-
 }
 
 void Board::resetBoard()
 {
-	//TODO
-	//for(int boardHeight = 0; boardHeight < m_data->m_board.size(); ++boardHeight)
-	//{
-	//	for(int boardWidth = 0; boardWidth < m_data->m_board[boardHeight].size(); ++boardWidth)
-	//	{
-	//		m_data->m_board[boardHeight][boardWidth] = std::make_unique<Tile>(SDL_Point{boardHeight, boardWidth});
+	for(int boardHeight = 0; boardHeight < m_data->m_board.size(); ++boardHeight)
+	{
+		for(int boardWidth = 0; boardWidth < m_data->m_board[boardHeight].size(); ++boardWidth)
+		{
+			m_data->m_board[boardHeight][boardWidth] = std::make_unique<Tile>(SDL_Point{ boardWidth, boardHeight});
+		}
+	}
 
-	//		m_data->m_board[boardHeight][boardWidth]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::PAWN,
-	//																						  common::ChessPieceColor::BLACK));
-	//	}
-	//}
-
-	m_data->m_board[0][0] = std::make_unique<Tile>(SDL_Point{ 0, 0 });
-
-	m_data->m_board[0][0]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::PAWN,
-																						common::ChessPieceColor::BLACK));
+	// set pawns
+	for(auto pawnLine : { std::pair<common::ChessPieceColor, int>(m_opponentSide, 1),
+						  std::pair<common::ChessPieceColor, int>(m_playerSide, 6) })
+	{
+		for(int boardWidth = 0; boardWidth < m_data->m_board[pawnLine.second].size(); ++boardWidth)
+		{
+			m_data->m_board[pawnLine.second][boardWidth]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::PAWN,
+																								  pawnLine.first));
+		}
+	}
+	//TODO setup the rest of the board
 }
 
 BoardData& Board::getData()

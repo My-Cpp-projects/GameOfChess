@@ -23,7 +23,8 @@ private:
 	textureUPtr_t m_boardTexture;
 	SDL_Renderer& m_renderer;
 
-	std::vector<tileViewUPtr_t> m_tileViews;
+	using tileViews = std::array<std::array<tileViewUPtr_t, 8>, 8>;
+	tileViews m_tileViewMatrix;
 };
 
 using boardViewUPtr_t = std::unique_ptr<BoardView>;
