@@ -1,10 +1,11 @@
 #pragma once
 
 #include <array>
+#include "Tile.h"
 
 struct BoardData
 {
-	using board = std::array<std::array<std::int16_t, 8>, 8>;
+	using board = std::array<std::array<tileUPtr_t, 8>, 8>;
 
 	board m_board{};
 };

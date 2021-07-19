@@ -14,7 +14,33 @@ namespace common
 	{
 		BMP = 0,
 		PNG = 1,
+
+        COUNT
 	};
+
+    enum class ChessPieceColor
+    {
+        NO_COLOR,
+
+        BLACK,
+        WHITE,
+
+        COUNT
+    };
+
+    enum class ChessPieceType
+    {
+        NO_TYPE,
+
+        KING,
+        QUEEN,
+        BISHOP,
+        KNIGHT,
+        ROOK,
+        PAWN,
+
+        COUNT
+    };
 
 	enum class Result
 	{

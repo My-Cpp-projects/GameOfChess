@@ -24,7 +24,7 @@ common::sdlSurfaceUPtr_t loadFromPathBMP(const std::string& path)
 }
 
 using loader = std::function<common::sdlSurfaceUPtr_t(const std::string&)>;
-const std::map<common::ImageType, loader> SURFACE_CREATION_PICKER =
+const std::map<common::ImageType, loader> SURFACE_CREATION_FUNCTION_MAP =
 {
     {common::ImageType::PNG, &loadFromPathPNG},
     {common::ImageType::BMP, &loadFromPathBMP}
@@ -32,16 +32,15 @@ const std::map<common::ImageType, loader> SURFACE_CREATION_PICKER =
 
 namespace ImageLoader
 {
-    imageLoadResult loadImage(const common::ImageType imageType,
-                              const std::string& pathToImage)
+    common::sdlSurfaceUPtr_t loadImage(const common::ImageType imageType,
+                                       const std::string& pathToImage)
     {
-        auto result = common::Result::SUCCESS;
-        auto loadedSurface = (SURFACE_CREATION_PICKER.at(imageType))(pathToImage);
+        auto loadedSurface = (SURFACE_CREATION_FUNCTION_MAP.at(imageType))(pathToImage);
         if(not loadedSurface)
         {
-            result = common::Result::FAILURE;
+            std::cerr << "Failed to load image from: " << pathToImage << ". Reason: " << SDL_GetError() << std::endl;
         }
 
-        return imageLoadResult{ result, std::move(loadedSurface) };
+        return std::move(loadedSurface);
     }
 }

@@ -39,7 +39,7 @@ void ApplicationImpl::startUp()
 									SCREEN_WIDTH,
 									SCREEN_HEIGHT,
 									SDL_WINDOW_SHOWN));
-														
+
 	if(not m_window.get())
 	{
 		std::cerr << "Failed to create window! Reason: " << SDL_GetError() << std::endl;
@@ -79,7 +79,7 @@ void ApplicationImpl::mainLoop()
 	while(m_gameController->isRunning())
 	{
 		m_gameController->handleEvents();
-		
+
 		m_boardView->render();
 	}
 }

@@ -154,21 +154,33 @@
     <ClCompile Include="ApplicationImpl.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="BoardView.cpp" />
+    <ClCompile Include="ChessPiece.cpp" />
+    <ClCompile Include="ChessPieceFactory.cpp" />
+    <ClCompile Include="ChessPieceView.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
-    <ClCompile Include="TextureCreator.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApplicationImpl.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="BoardData.h" />
     <ClInclude Include="BoardView.h" />
+    <ClInclude Include="ChessPiece.h" />
+    <ClInclude Include="ChessPieceFactory.h" />
+    <ClInclude Include="ChessPieceView.h" />
     <ClInclude Include="CommonTypes.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="ImageLoader.h" />
-    <ClInclude Include="TextureCreator.h" />
+    <ClInclude Include="IView.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileData.h" />
+    <ClInclude Include="TileView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

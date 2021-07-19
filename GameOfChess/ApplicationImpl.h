@@ -22,11 +22,10 @@ private:
 	void shutDown();
 
 	void mainLoop();
-	void handleEvents();
 
 private:
-	constexpr static std::uint32_t SCREEN_WIDTH{ 480 };
-	constexpr static std::uint32_t SCREEN_HEIGHT{ 480 };
+	constexpr static unsigned int SCREEN_WIDTH{ 480 };
+	constexpr static unsigned int SCREEN_HEIGHT{ 480 };
 	bool m_isStartUpSuccessful{ false };
 	common::sdlWindowUPtr_t m_window{ nullptr, SDL_DestroyWindow };
 	common::sdlRendererUPtr_t m_renderer{ nullptr, SDL_DestroyRenderer };

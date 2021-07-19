@@ -8,7 +8,6 @@ GameController::GameController(BoardData& boardData)
 
 GameController::~GameController()
 {
-
 }
 
 bool GameController::isRunning() const
