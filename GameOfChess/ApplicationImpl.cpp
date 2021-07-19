@@ -33,7 +33,7 @@ void ApplicationImpl::startUp()
 		return;
 	}
 
-	m_window.reset(SDL_CreateWindow("SDL Window",
+	m_window.reset(SDL_CreateWindow("The Game Of Chess",
 									SDL_WINDOWPOS_UNDEFINED,
 									SDL_WINDOWPOS_UNDEFINED,
 									SCREEN_WIDTH,
