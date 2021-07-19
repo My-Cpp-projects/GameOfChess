@@ -25,7 +25,13 @@ void TileView::render() const
 				double blackPawnStartX = singlePieceWidth * 5;
 				double blackPawnStartY = singlePieceHeight * 1;
 				SDL_Rect rect{ blackPawnStartX, blackPawnStartY, singlePieceWidth, singlePieceHeight };
-				blackPawn.render(m_tileData.m_position, &rect);
+
+				double mid = (m_tileData.TILE_SIZE_IN_PIXELS - singlePieceWidth) / 2;
+				double renderStartPosX = m_tileData.m_position.x * m_tileData.TILE_SIZE_IN_PIXELS + mid;
+				double renderStartPosY = m_tileData.m_position.y * m_tileData.TILE_SIZE_IN_PIXELS + mid;
+				SDL_Point renderPosition{ renderStartPosX, renderStartPosY };
+
+				blackPawn.render(renderPosition, &rect);
 			}
 		}
 	}
