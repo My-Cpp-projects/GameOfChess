@@ -7,12 +7,15 @@ BoardView::BoardView(BoardData& boardData,
 	, m_renderer(renderer)
 {
 	m_boardTexture = std::make_unique<Texture>(common::ImageType::PNG, "Assets/Chessboard.png", renderer);
+	m_chessPieceView = std::make_unique<ChessPieceView>(renderer);
 
 	for(int boardHeight = 0; boardHeight < m_boardData.m_board.size(); ++boardHeight)
 	{
 		for(int boardWidth = 0; boardWidth < m_boardData.m_board[boardHeight].size(); ++boardWidth)
 		{
-			m_tileViewMatrix[boardHeight][boardWidth] = std::make_unique<TileView>(m_boardData.m_board[boardHeight][boardWidth]->getData(), renderer);
+			m_tileViewMatrix[boardHeight][boardWidth] = std::make_unique<TileView>(m_boardData.m_board[boardHeight][boardWidth]->getData(),
+																				   renderer,
+																				   *m_chessPieceView);
 		}
 	}
 }
@@ -21,7 +24,7 @@ BoardView::~BoardView()
 {
 }
 
-void BoardView::render() const
+void BoardView::render(const SDL_Point& renderStartLocation) const
 {
 	SDL_RenderClear(&m_renderer);
 
