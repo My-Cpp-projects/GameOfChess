@@ -4,12 +4,18 @@
 
 #include <SDL.h>
 #include <memory.h>
+#include <iostream>
 
 struct ChessPiece
 {
 public:
 	ChessPiece(const common::ChessPieceColor& color,
 			   const common::ChessPieceType& type);
+
+	~ChessPiece()
+	{
+		std::cout << "Chess piece deleted" << std::endl;
+	}
 
 	common::ChessPieceColor m_color;
 	common::ChessPieceType m_type;
