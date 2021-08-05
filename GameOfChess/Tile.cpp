@@ -6,7 +6,9 @@ Tile::Tile(const SDL_Point& position)
 }
 
 Tile::~Tile()
-{}
+{
+	printf("Tile deleted");
+}
 
 void Tile::setPiece(chessPieceUPtr_t piece)
 {

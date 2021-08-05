@@ -19,22 +19,31 @@ bool GameController::isRunning() const
 
 void GameController::mousePress(SDL_MouseButtonEvent& event)
 {
+	//TODO this looks ugly!
 	if(SDL_BUTTON_LEFT == event.button)
 	{
 		int mouseX;
 		int mouseY;
 		SDL_GetMouseState(&mouseX, &mouseY);
 		const auto tilePosition = getTilePositionByMouseCoordinates(mouseX, mouseY);
-		const auto& pieceInClickedTile = m_boardData.m_board[tilePosition.x][tilePosition.y]->getData().m_containedPiece;
-		if(pieceInClickedTile)
+		// If nothing selected
+		if(not m_boardData.selectedTileWithPiece)
 		{
-			m_boardData.selectedTileWithPiece = m_boardData.m_board[tilePosition.x][tilePosition.y].get();
+			const auto& pieceInClickedTile = m_boardData.m_board[tilePosition.x][tilePosition.y]->getData().m_containedPiece;
+			if(pieceInClickedTile)
+			{
+				m_boardData.selectedTileWithPiece = m_boardData.m_board[tilePosition.x][tilePosition.y].get();
+			}
 		}
-		if(m_boardData.selectedTileWithPiece)
+		else // if selected
 		{
-			std::cout << "Selected Tile X:" << m_boardData.selectedTileWithPiece->getData().m_position.x << std::endl;
-			std::cout << "Selected Tile Y:" << m_boardData.selectedTileWithPiece->getData().m_position.y << std::endl;
+			m_boardData.m_board[tilePosition.x][tilePosition.y]->setPiece(std::move(m_boardData.selectedTileWithPiece->getData().m_containedPiece));
+			m_boardData.selectedTileWithPiece = nullptr;
 		}
+	}
+	if(SDL_BUTTON_RIGHT == event.button)
+	{
+		m_boardData.selectedTileWithPiece = nullptr;
 	}
 }
 
