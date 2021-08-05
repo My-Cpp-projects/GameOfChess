@@ -12,11 +12,16 @@ public:
 	~GameController();
 
 	bool isRunning() const;
+	void mousePress(SDL_MouseButtonEvent& b);
 	void handleEvents();
 
 private:
+	SDL_Point getTilePositionByMouseCoordinates(const int& mouseX,
+												const int& mouseY);
+
+private:
 	bool m_isRunning{ false };
-	SDL_Event m_event;
+	BoardData& m_boardData;
 };
 
 using gameControllerUPtr_t = std::unique_ptr<GameController>;

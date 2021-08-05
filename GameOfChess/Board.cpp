@@ -35,7 +35,7 @@ void Board::resetBoard()
 	{
 		for(int boardWidth = 0; boardWidth < m_data->m_board[boardHeight].size(); ++boardWidth)
 		{
-			m_data->m_board[boardHeight][boardWidth] = std::make_unique<Tile>(SDL_Point{ boardWidth, boardHeight});
+			m_data->m_board[boardWidth][boardHeight] = std::make_unique<Tile>(SDL_Point{ boardWidth, boardHeight });
 		}
 	}
 
@@ -45,15 +45,15 @@ void Board::resetBoard()
 	{
 		for(int boardWidth = 0; boardWidth < m_data->m_board[pawnLine.second].size(); ++boardWidth)
 		{
-			m_data->m_board[pawnLine.second][boardWidth]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::PAWN,
+			m_data->m_board[boardWidth][pawnLine.second]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::PAWN,
 																								  pawnLine.first));
 		}
 	}
 
 	// set rooks
 	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 0}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 7}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {7, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {0, 7}),
 					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 7}) })
 	{
 		m_data->m_board[rooks.second.x][rooks.second.y]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::ROOK,
@@ -61,36 +61,36 @@ void Board::resetBoard()
 	}
 
 	// set knights
-	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 1}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 6}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 1}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 6}) })
+	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {1, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {6, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {1, 7}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {6, 7}) })
 	{
 		m_data->m_board[rooks.second.x][rooks.second.y]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::KNIGHT,
 																								 rooks.first));
 	}
 
 	// set bishops
-	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 2}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 5}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 2}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 5}) })
+	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {2, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {5, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {2, 7}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {5, 7}) })
 	{
 		m_data->m_board[rooks.second.x][rooks.second.y]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::BISHOP,
 																								 rooks.first));
 	}
 
 	// set queens
-	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 3}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 3}) })
+	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {3, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {3, 7}) })
 	{
 		m_data->m_board[rooks.second.x][rooks.second.y]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::QUEEN,
 																								 rooks.first));
 	}
 
 	// set kings
-	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {0, 4}),
-					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {7, 4}) })
+	for(auto rooks : { std::pair<common::ChessPieceColor, SDL_Point>(m_opponentSide, {4, 0}),
+					   std::pair<common::ChessPieceColor, SDL_Point>(m_playerSide, {4, 7}) })
 	{
 		m_data->m_board[rooks.second.x][rooks.second.y]->setPiece(chessPieceFactory::createPiece(common::ChessPieceType::KING,
 																								 rooks.first));

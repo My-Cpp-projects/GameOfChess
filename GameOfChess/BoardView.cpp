@@ -13,7 +13,7 @@ BoardView::BoardView(BoardData& boardData,
 	{
 		for(int boardWidth = 0; boardWidth < m_boardData.m_board[boardHeight].size(); ++boardWidth)
 		{
-			m_tileViewMatrix[boardHeight][boardWidth] = std::make_unique<TileView>(m_boardData.m_board[boardHeight][boardWidth]->getData(),
+			m_tileViewMatrix[boardWidth][boardHeight] = std::make_unique<TileView>(m_boardData.m_board[boardWidth][boardHeight]->getData(),
 																				   renderer,
 																				   *m_chessPieceView);
 		}
