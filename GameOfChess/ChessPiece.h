@@ -12,10 +12,7 @@ public:
 	ChessPiece(const common::ChessPieceColor& color,
 			   const common::ChessPieceType& type);
 
-	~ChessPiece()
-	{
-		std::cout << "Chess piece deleted" << std::endl;
-	}
+	~ChessPiece();
 
 	common::ChessPieceColor m_color;
 	common::ChessPieceType m_type;

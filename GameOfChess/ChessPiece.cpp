@@ -6,3 +6,8 @@ ChessPiece::ChessPiece(const common::ChessPieceColor& color,
 	, m_type(type)
 {
 }
+
+ChessPiece::~ChessPiece()
+{
+	printf("Destructor called for Chess Piece\n");
+}

@@ -13,6 +13,8 @@ public:
 			const std::string& pathToTexture,
 			SDL_Renderer& renderer);
 
+	~Texture();
+
 	void render(const SDL_Point& RenderingPosition,
 				const SDL_Rect* const clipRect = nullptr);
 

@@ -22,6 +22,7 @@ BoardView::BoardView(BoardData& boardData,
 
 BoardView::~BoardView()
 {
+	printf("Destructor called for BoardView\n");
 }
 
 void BoardView::render(const SDL_Point& renderStartLocation) const

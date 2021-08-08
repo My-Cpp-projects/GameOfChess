@@ -10,6 +10,7 @@ GameController::GameController(BoardData& boardData)
 
 GameController::~GameController()
 {
+	printf("Destructor called for Game Controller\n");
 }
 
 bool GameController::isRunning() const

@@ -12,6 +12,11 @@ Texture::Texture(const common::ImageType type,
 	m_height = loadedImage->h;
 }
 
+Texture::~Texture()
+{
+	printf("Destructor called for Texture\n");
+}
+
 void Texture::render(const SDL_Point& RenderingPosition,
 					 const SDL_Rect* const clipRect)
 {

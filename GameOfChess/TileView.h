@@ -12,6 +12,7 @@ public:
 	TileView(const TileData& tileData,
 			 SDL_Renderer& renderer,
 			 ChessPieceView& chessPieceView);
+	~TileView();
 
 	void render(const SDL_Point& renderStartLocation = {}) const override;
 

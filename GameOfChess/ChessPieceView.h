@@ -13,6 +13,7 @@ class ChessPieceView : public IView
 {
 public:
 	ChessPieceView(SDL_Renderer& renderer);
+	~ChessPieceView();
 
 	void setRenderingPiece(const ChessPiece& pieceToRender);
 

@@ -11,6 +11,7 @@ ApplicationImpl::ApplicationImpl()
 
 ApplicationImpl::~ApplicationImpl()
 {
+	printf("Destructor called for Application\n");
 	shutDown();
 }
 

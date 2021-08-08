@@ -27,6 +27,7 @@ Board::Board()
 
 Board::~Board()
 {
+	printf("Destructor called for Board\n");
 }
 
 void Board::resetBoard()

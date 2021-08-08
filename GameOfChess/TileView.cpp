@@ -13,6 +13,11 @@ TileView::TileView(const TileData& tileData,
 
 }
 
+TileView::~TileView()
+{
+	printf("Destructor called for Tile View\n");
+}
+
 void TileView::render(const SDL_Point& renderStartLocation) const
 {
 	//TODO all of the below needs to go into pieceView in the end

@@ -12,6 +12,11 @@ ChessPieceView::ChessPieceView(SDL_Renderer& renderer)
 	initClipRects();
 }
 
+ChessPieceView::~ChessPieceView()
+{
+	printf("Destructor called for Chess Piece View\n");
+}
+
 void ChessPieceView::setRenderingPiece(const ChessPiece& pieceToRender)
 {
 	m_piece = &pieceToRender;
