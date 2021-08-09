@@ -1,5 +1,5 @@
-#include "Board.h"
-#include "ChessPieceFactory.h"
+#include "model/Board.h"
+#include "factory/ChessPieceFactory.h"
 
 Board::Board()
 	: m_data(std::make_unique<BoardData>())

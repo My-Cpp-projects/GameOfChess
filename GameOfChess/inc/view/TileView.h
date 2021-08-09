@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IView.h"
-#include "TileData.h"
+#include "model/TileData.h"
 #include "ChessPieceView.h"
 
 #include <memory>

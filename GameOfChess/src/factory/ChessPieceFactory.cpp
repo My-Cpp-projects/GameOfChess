@@ -1,4 +1,4 @@
-#include "ChessPieceFactory.h"
+#include "factory/ChessPieceFactory.h"
 
 #include <map>
 #include <functional>

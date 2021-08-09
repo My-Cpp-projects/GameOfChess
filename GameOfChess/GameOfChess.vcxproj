@@ -18,6 +18,38 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\application\ApplicationImpl.h" />
+    <ClInclude Include="inc\application\IApplication.h" />
+    <ClInclude Include="inc\controller\GameController.h" />
+    <ClInclude Include="inc\factory\ChessPieceFactory.h" />
+    <ClInclude Include="inc\model\Board.h" />
+    <ClInclude Include="inc\model\BoardData.h" />
+    <ClInclude Include="inc\model\ChessPiece.h" />
+    <ClInclude Include="inc\model\Tile.h" />
+    <ClInclude Include="inc\model\TileData.h" />
+    <ClInclude Include="inc\util\CommonTypes.h" />
+    <ClInclude Include="inc\util\ImageLoader.h" />
+    <ClInclude Include="inc\util\Texture.h" />
+    <ClInclude Include="inc\view\BoardView.h" />
+    <ClInclude Include="inc\view\ChessPieceView.h" />
+    <ClInclude Include="inc\view\IView.h" />
+    <ClInclude Include="inc\view\TileView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\application\ApplicationImpl.cpp" />
+    <ClCompile Include="src\controller\GameController.cpp" />
+    <ClCompile Include="src\factory\ChessPieceFactory.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\model\Board.cpp" />
+    <ClCompile Include="src\model\ChessPiece.cpp" />
+    <ClCompile Include="src\model\Tile.cpp" />
+    <ClCompile Include="src\util\ImageLoader.cpp" />
+    <ClCompile Include="src\util\Texture.cpp" />
+    <ClCompile Include="src\view\BoardView.cpp" />
+    <ClCompile Include="src\view\ChessPieceView.cpp" />
+    <ClCompile Include="src\view\TileView.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -96,6 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +159,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\inc\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,38 +184,6 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="ApplicationImpl.cpp" />
-    <ClCompile Include="Board.cpp" />
-    <ClCompile Include="BoardView.cpp" />
-    <ClCompile Include="ChessPiece.cpp" />
-    <ClCompile Include="ChessPieceFactory.cpp" />
-    <ClCompile Include="ChessPieceView.cpp" />
-    <ClCompile Include="GameController.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="ImageLoader.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileView.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ApplicationImpl.h" />
-    <ClInclude Include="Board.h" />
-    <ClInclude Include="BoardData.h" />
-    <ClInclude Include="BoardView.h" />
-    <ClInclude Include="ChessPiece.h" />
-    <ClInclude Include="ChessPieceFactory.h" />
-    <ClInclude Include="ChessPieceView.h" />
-    <ClInclude Include="CommonTypes.h" />
-    <ClInclude Include="GameController.h" />
-    <ClInclude Include="IApplication.h" />
-    <ClInclude Include="ImageLoader.h" />
-    <ClInclude Include="IView.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Tile.h" />
-    <ClInclude Include="TileData.h" />
-    <ClInclude Include="TileView.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

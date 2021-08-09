@@ -5,9 +5,9 @@
 #include <memory>
 
 #include "IView.h"
-#include "ChessPiece.h"
-#include "Texture.h"
-#include "CommonTypes.h"
+#include "model/ChessPiece.h"
+#include "util/Texture.h"
+#include "util/CommonTypes.h"
 
 class ChessPieceView : public IView
 {

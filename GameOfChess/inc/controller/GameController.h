@@ -3,7 +3,7 @@
 #include <memory>
 #include <SDL.h>
 
-#include "BoardData.h"
+#include "model/BoardData.h"
 
 class GameController
 {

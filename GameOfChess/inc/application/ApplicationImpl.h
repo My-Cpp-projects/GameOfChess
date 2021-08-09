@@ -1,10 +1,10 @@
 #pragma once
 
 #include "IApplication.h"
-#include "CommonTypes.h"
-#include "Board.h"
-#include "BoardView.h"
-#include "GameController.h"
+#include "util/CommonTypes.h"
+#include "model/Board.h"
+#include "view/BoardView.h"
+#include "controller/GameController.h"
 
 #include <SDL.h>
 #include <memory>

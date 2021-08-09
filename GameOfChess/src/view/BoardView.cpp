@@ -1,5 +1,5 @@
-#include "BoardView.h"
-#include "Texture.h"
+#include "view/BoardView.h"
+#include "util/Texture.h"
 
 BoardView::BoardView(BoardData& boardData,
 					 SDL_Renderer& renderer)

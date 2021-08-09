@@ -1,5 +1,5 @@
-#include "TileView.h"
-#include "Texture.h"
+#include "view/TileView.h"
+#include "util/Texture.h"
 
 #include <iostream>
 

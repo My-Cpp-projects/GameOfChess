@@ -1,7 +1,7 @@
 #pragma once
 
 #include "BoardData.h"
-#include "CommonTypes.h"
+#include "util/CommonTypes.h"
 
 #include <array>
 #include <memory>

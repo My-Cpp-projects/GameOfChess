@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ChessPiece.h"
-#include "CommonTypes.h"
+#include "model/ChessPiece.h"
+#include "util/CommonTypes.h"
 
 namespace chessPieceFactory
 {

@@ -1,4 +1,4 @@
-#include "ChessPiece.h"
+#include "model/ChessPiece.h"
 
 ChessPiece::ChessPiece(const common::ChessPieceColor& color,
 					   const common::ChessPieceType& type)

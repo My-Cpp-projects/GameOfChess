@@ -1,4 +1,4 @@
-#include "ChessPieceView.h"
+#include "view/ChessPieceView.h"
 #include <array>
 
 ChessPieceView::ChessPieceView(SDL_Renderer& renderer)

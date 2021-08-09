@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CommonTypes.h"
+#include "util/CommonTypes.h"
 
 #include <SDL.h>
 #include <memory.h>

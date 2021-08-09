@@ -1,8 +1,8 @@
 #pragma once
 
-#include "BoardData.h"
+#include "model/BoardData.h"
 #include "IView.h"
-#include "Texture.h"
+#include "util/Texture.h"
 #include "TileView.h"
 #include "ChessPieceView.h"
 

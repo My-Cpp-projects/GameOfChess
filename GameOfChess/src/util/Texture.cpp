@@ -1,5 +1,5 @@
-#include "Texture.h"
-#include "ImageLoader.h"
+#include "util/Texture.h"
+#include "util/ImageLoader.h"
 
 Texture::Texture(const common::ImageType type,
 				 const std::string& pathToTexture,

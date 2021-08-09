@@ -1,4 +1,4 @@
-#include "GameController.h"
+#include "controller/GameController.h"
 #include <iostream>
 
 GameController::GameController(BoardData& boardData)
