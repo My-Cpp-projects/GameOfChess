@@ -2,8 +2,7 @@
 
 Tile::Tile(const SDL_Point& position)
 	: m_tileData(std::make_unique<TileData>(position))
-{
-}
+{}
 
 Tile::~Tile()
 {

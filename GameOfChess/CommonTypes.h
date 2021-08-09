@@ -5,63 +5,63 @@
 
 namespace common
 {
-    using sdlSurfaceUPtr_t = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
-    using sdlWindowUPtr_t = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
-    using sdlTextureUPtr_t = std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)>;
-    using sdlRendererUPtr_t = std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)>;
+	using sdlSurfaceUPtr_t = std::unique_ptr<SDL_Surface, decltype(&SDL_FreeSurface)>;
+	using sdlWindowUPtr_t = std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)>;
+	using sdlTextureUPtr_t = std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)>;
+	using sdlRendererUPtr_t = std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)>;
 
-    enum class ImageType
-    {
-	    BMP = 0,
-	    PNG = 1,
+	enum class ImageType
+	{
+		BMP = 0,
+		PNG = 1,
 
-        COUNT
-    };
+		COUNT
+	};
 
-    enum class ChessPieceColor
-    {
-        NO_COLOR,
+	enum class ChessPieceColor
+	{
+		NO_COLOR,
 
-        BLACK,
-        WHITE,
+		BLACK,
+		WHITE,
 
-        COUNT
-    };
+		COUNT
+	};
 
-    enum class ChessPieceType
-    {
-        NO_TYPE,
+	enum class ChessPieceType
+	{
+		NO_TYPE,
 
-        KING,
-        QUEEN,
-        BISHOP,
-        KNIGHT,
-        ROOK,
-        PAWN,
+		KING,
+		QUEEN,
+		BISHOP,
+		KNIGHT,
+		ROOK,
+		PAWN,
 
-        COUNT
-    };
+		COUNT
+	};
 
-    enum class Result
-    {
-	    FAILURE = 0,
-	    SUCCESS = 1,
-    };
+	enum class Result
+	{
+		FAILURE = 0,
+		SUCCESS = 1,
+	};
 
-    template <typename T>
-    struct ResultValue
-    {
-        ResultValue(Result r, T& v)
-            : result(r)
-            , value(v)
-        {}
+	template <typename T>
+	struct ResultValue
+	{
+		ResultValue(Result r, T& v)
+			: result(r)
+			, value(v)
+		{}
 
-        ResultValue(Result r, T&& v)
-            : result(r)
-            , value(std::move(v))
-        {}
+		ResultValue(Result r, T&& v)
+			: result(r)
+			, value(std::move(v))
+		{}
 
-        Result result;
-        T value;
-    };
+		Result result;
+		T value;
+	};
 }

@@ -5,7 +5,6 @@ GameController::GameController(BoardData& boardData)
 	: m_isRunning(true)
 	, m_boardData(boardData)
 {
-
 }
 
 GameController::~GameController()
@@ -88,5 +87,3 @@ SDL_Point GameController::getTilePositionByMouseCoordinates(const int& mouseX,
 	int y = mouseY / TILE_SIZE;
 	return SDL_Point{ x, y };
 }
-
-

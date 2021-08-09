@@ -10,7 +10,6 @@ TileView::TileView(const TileData& tileData,
 	, m_renderer(renderer)
 	, m_chessPieceView(chessPieceView)
 {
-
 }
 
 TileView::~TileView()

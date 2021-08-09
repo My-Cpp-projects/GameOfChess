@@ -29,7 +29,7 @@ private:
 	static constexpr int NO_OF_PIECES = 6;
 	static constexpr int NO_OF_COLORS = 2;
 
-	const ChessPiece* m_piece{nullptr};
+	const ChessPiece* m_piece{ nullptr };
 	SDL_Renderer& m_renderer;
 	std::unique_ptr<Texture> m_sprite;
 	using clipRectByColorAndType = std::map<std::pair<common::ChessPieceColor, common::ChessPieceType>, SDL_Rect>;

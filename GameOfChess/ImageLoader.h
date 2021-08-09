@@ -11,5 +11,5 @@
 namespace ImageLoader
 {
 	common::sdlSurfaceUPtr_t loadImage(const common::ImageType imageType,
-							  const std::string& pathToImage);
+									   const std::string& pathToImage);
 };
